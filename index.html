@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Шинотека · круглосуточный шиномонтаж в Красноярске</title>
+<meta name="description" content="Шиномонтаж на Северо-Енисейской, 46/2, Красноярск: круглосуточно, без выходных. Балансировка, вулканизация, хранение шин, развал-схождение.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="Шинотека">
+<meta property="og:title" content="Круглосуточный шиномонтаж в Красноярске – Шинотека">
+<meta property="og:description" content="Шиномонтаж на Северо-Енисейской, 46/2: круглосуточно, без выходных. Балансировка, вулканизация, хранение шин.">
+<meta property="og:image" content="assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preload" as="image" href="assets/hero-m.webp" media="(max-width: 860px)" fetchpriority="high">
+<link rel="preload" as="image" href="assets/hero.webp" media="(min-width: 861px)" fetchpriority="high">
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/unbounded-cyrillic.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/manrope-cyrillic.woff2" crossorigin>
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%2711%27 fill=%27none%27 stroke=%27%23f2a93b%27 stroke-width=%276%27/%3E%3C/svg%3E">
+<link rel="stylesheet" href="vibe.css">
+<style>
+  .v-page {
+    --v-canvas: #0b0d11; --v-surface: #141821;
+    --v-ink: #f1ede4; --v-ink-soft: #9d9a92;
+    --v-accent: #f2a93b; --v-accent-ink: #16110a;
+    --v-font-display: "Unbounded", "Arial Black", system-ui, sans-serif;
+    --v-font-text: "Manrope", "Segoe UI", system-ui, sans-serif;
+    --v-shadow-color: 4 6 12;
+    --v-canvas-rgb: 11 13 17;
+    --v-accent-rgb: 242 169 59;
+  }
+
+  /* шапка */
+  .bar { position: fixed; inset: 0 0 auto 0; z-index: 30; display: flex; align-items: center; justify-content: space-between;
+    padding: var(--v-3) var(--v-gutter); gap: var(--v-4);
+    background: linear-gradient(to bottom, rgb(var(--v-canvas-rgb) / .85), rgb(var(--v-canvas-rgb) / 0));
+    transition: background-color .3s var(--v-ease-out), box-shadow .3s var(--v-ease-out); }
+  .bar.is-scrolled { background: rgb(var(--v-canvas-rgb) / .78); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+    box-shadow: 0 1px 0 var(--v-hair); }
+  .bar__mark { font-family: var(--v-font-display); font-weight: 700; font-size: var(--v-t-sm); letter-spacing: .02em; text-decoration: none;
+    display: inline-flex; align-items: center; gap: .55em; min-height: 44px; white-space: nowrap; }
+  .bar__mark i { width: .9em; height: .9em; border-radius: 50%; border: .22em solid var(--v-accent); display: inline-block; }
+  .bar__center { flex: 1; display: flex; justify-content: center; }
+  .bar__services { font-size: .95rem; padding: .55em 1.2em; font-weight: 600; letter-spacing: .03em; color: var(--v-ink-soft); text-decoration: none; min-height: 44px; display: inline-flex; align-items: center; }
+  .bar__right { display: flex; align-items: center; gap: var(--v-4); }
+  .bar__tel { text-decoration: none; font-weight: 600; font-size: var(--v-t-sm); color: var(--v-ink); display: inline-flex; align-items: center; min-height: 44px; padding: 0 var(--v-2); }
+  .bar__right .v-btn--fill { background: var(--v-accent); color: var(--v-accent-ink); }
+  @media (max-width: 700px) {
+    .bar__tel { display: none; }
+    .bar__services { font-size: .85rem; padding: .5em 1.2em; }
+    .bar__right .v-btn:not(.bar__services) { padding: 0 1em; min-height: 44px; font-size: .8rem; }
+    .bar__right { gap: var(--v-2); }
+    .bar__mark { font-size: .85rem; }
+  }
+  @media (max-width: 860px) { .bar.is-scrolled { background: rgb(var(--v-canvas-rgb) / .96); } }
+
+  /* hero + контакты (совмещённый экран) */
+  .hero { position: relative; min-height: 100svh; display: flex; flex-direction: column; justify-content: center;
+    padding: clamp(6rem, 14vh, 9rem) var(--v-gutter) clamp(3rem, 6vh, 5rem); overflow: hidden; }
+  .hero__bg { position: absolute; inset: 0; z-index: 0; }
+  .hero__bg img { width: 100%; height: 100%; object-fit: cover; }
+  .hero__bg::after { content: ""; position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgb(var(--v-canvas-rgb) / .5) 0%, rgb(var(--v-canvas-rgb) / .7) 50%, var(--v-canvas) 100%); }
+  .hero__content { position: relative; z-index: 1; max-width: 56rem; }
+  .hero__badge { display: inline-flex; align-items: center; gap: .5em; margin-bottom: var(--v-5);
+    background: var(--v-accent); color: var(--v-accent-ink); font-weight: 700; font-size: var(--v-t-xs);
+    letter-spacing: var(--v-track-wide); text-transform: uppercase; padding: .5em 1em; border-radius: 999px; }
+  .hero h1 { font-family: var(--v-font-display); font-weight: 700; font-size: clamp(2rem, 1.2rem + 3.5vw, 4rem);
+    line-height: 1.05; margin-bottom: var(--v-5); }
+  .hero__lede { font-size: var(--v-t-lg); color: var(--v-ink); opacity: .9; max-width: 44ch; margin-bottom: var(--v-7); line-height: 1.5; }
+  .hero__lede a { color: inherit; text-decoration: underline; text-underline-offset: .2em; text-decoration-color: var(--v-ink-soft); }
+  .hero__cta { display: flex; flex-wrap: wrap; gap: var(--v-3); margin-bottom: var(--v-7); }
+  .hero__cta .v-btn { font-size: 1.05rem; padding: .7em 1.8em; }
+  .hero__contacts { display: grid; grid-template-columns: auto auto; gap: var(--v-3) var(--v-8); align-items: center;
+    padding-top: var(--v-6); border-top: 1px solid rgb(var(--v-accent-rgb) / .25); max-width: 38rem; }
+  .hero__contacts a { color: var(--v-ink); text-decoration: none; font-size: var(--v-t-sm); display: inline-flex; align-items: center; min-height: 44px; }
+  .hero__contacts a:hover { color: var(--v-accent); }
+  .hero__contacts .contact-label { color: var(--v-ink-soft); font-size: var(--v-t-xs); letter-spacing: var(--v-track-wide); text-transform: uppercase; }
+  @media (max-width: 600px) {
+    .hero__contacts { grid-template-columns: 1fr; gap: var(--v-2); }
+  }
+
+  /* услуги */
+  .services { display: grid; grid-template-columns: 1.3fr .9fr; gap: var(--v-9); align-items: start; }
+  .services__list li { display: grid; grid-template-columns: 1fr; gap: var(--v-1); padding: var(--v-5) 0; border-top: 1px solid var(--v-hair); }
+  .services__list li:last-child { border-bottom: 1px solid var(--v-hair); }
+  .services__list h3 { font-family: var(--v-font-display); font-weight: 500; font-size: var(--v-t-lg); letter-spacing: var(--v-track-normal); }
+  .services__list p { color: var(--v-ink-soft); font-size: var(--v-t-sm); max-width: 44ch; }
+  .services__fig { position: sticky; top: var(--v-8); border-radius: var(--v-radius); overflow: hidden; box-shadow: var(--v-e2), var(--v-edge); aspect-ratio: 3 / 4; }
+  .services__fig img { width: 100%; height: 100%; object-fit: cover; }
+  .services__fig figcaption { position: absolute; left: var(--v-5); bottom: var(--v-5); right: var(--v-5); font-size: var(--v-t-sm); color: var(--v-ink); z-index: 1; }
+  .services__fig::after { content: ""; position: absolute; inset: auto 0 0 0; height: 55%; background: linear-gradient(to top, rgb(0 0 0 / .85), rgb(0 0 0 / .4) 50%, transparent); }
+  @media (max-width: 860px) {
+    .services { grid-template-columns: 1fr; gap: var(--v-7); }
+    .services__fig { aspect-ratio: 4 / 3; position: static; }
+  }
+
+  /* отзывы (классический вид) */
+  .reviews { max-width: 64rem; margin: 0 auto; }
+  .reviews__head { display: flex; flex-wrap: wrap; gap: var(--v-4); align-items: center; margin-bottom: var(--v-7); }
+  .reviews__rating { display: flex; align-items: center; gap: var(--v-3); font-size: var(--v-t-sm); flex-wrap: wrap; }
+  .reviews__rating a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 var(--v-2); }
+  .reviews__num { font-family: var(--v-font-display); font-size: var(--v-t-2xl); line-height: 1; }
+  .reviews__stars { --size: 1.1rem; display: inline-block; width: calc(var(--size) * 5); height: var(--size);
+    background: linear-gradient(90deg, var(--v-accent) calc(var(--r, 0) / 5 * 100%), var(--v-hair-strong) 0);
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z'/%3E%3C/svg%3E") 0 0 / var(--size) var(--size) repeat-x;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z'/%3E%3C/svg%3E") 0 0 / var(--size) var(--size) repeat-x; }
+  .reviews__list { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--v-6); }
+  .reviews__item { background: var(--v-surface); border-radius: var(--v-radius); padding: var(--v-6); }
+  .reviews__text { font-size: var(--v-t-sm); line-height: 1.55; text-wrap: pretty; }
+  .reviews__meta { margin-top: var(--v-4); font-size: var(--v-t-xs); color: var(--v-ink-soft); }
+  .reviews__meta b { color: var(--v-ink); font-weight: 600; }
+  .reviews__platforms { margin-top: var(--v-6); display: flex; flex-wrap: wrap; gap: var(--v-6); align-items: center; }
+  .reviews__platform { display: flex; align-items: center; gap: var(--v-3); font-size: var(--v-t-sm); }
+  .reviews__platform .reviews__num { font-size: var(--v-t-xl); }
+  .reviews__platform a { min-height: 44px; display: inline-flex; align-items: center; font-size: var(--v-t-sm); }
+  .reviews__item:first-child { grid-column: 1 / -1; }
+  @media (max-width: 860px) { .reviews__list { grid-template-columns: 1fr; } .reviews__item:first-child { grid-column: auto; } }
+
+  /* подвал */
+  .foot { padding: var(--v-7) var(--v-gutter); display: flex; justify-content: space-between; gap: var(--v-4);
+    border-top: 1px solid var(--v-hair); font-size: var(--v-t-xs); color: var(--v-ink-soft); flex-wrap: wrap; }
+
+  /* демо-плашка */
+  .demo-badge { position: fixed; bottom: var(--v-4); left: var(--v-gutter); z-index: 40;
+    background: var(--v-surface); border: 1px solid var(--v-hair-strong); border-radius: 999px;
+    padding: .55em 1.1em; font-size: var(--v-t-xs); color: var(--v-ink-soft); letter-spacing: var(--v-track-wide);
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); pointer-events: none; }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AutoRepair",
+  "name": "Шинотека",
+  "description": "Круглосуточный шиномонтаж в Красноярске: балансировка, вулканизация, хранение шин, развал-схождение",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Северо-Енисейская улица, 46/2",
+    "addressLocality": "Красноярск",
+    "addressCountry": "RU"
+  },
+  "telephone": ["+7 (933) 321-48-88", "+7 (906) 915-00-00"],
+  "openingHours": "Mo-Su 00:00-23:59",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "89",
+    "bestRating": "5"
+  }
+}
+</script>
+</head>
+<body>
+<div class="v-page">
+  <span data-v-progress aria-hidden="true"></span>
+  <div class="v-grain" aria-hidden="true"></div>
+
+  <header class="bar">
+    <a class="bar__mark" href="#top"><i aria-hidden="true"></i>Шинотека</a>
+    <div class="bar__center">
+      <a class="bar__services" href="#uslugi">Услуги ↓</a>
+    </div>
+    <nav class="bar__right" aria-label="Быстрые ссылки">
+      <a class="bar__tel" href="tel:+79333214888">+7 (933) 321-48-88</a>
+      <a class="v-btn v-btn--fill" href="tel:+79333214888">Позвонить</a>
+    </nav>
+  </header>
+
+  <main id="top">
+
+    <!-- Hero + контакты (один экран) -->
+    <section class="hero" data-v-act="flow" data-v-drift="#0b0d11" aria-label="Круглосуточный шиномонтаж">
+      <div class="hero__bg">
+        <picture>
+          <source media="(max-width: 860px)" srcset="assets/hero-m.webp">
+          <img src="assets/hero.webp" alt="" width="1920" height="1067" fetchpriority="high">
+        </picture>
+      </div>
+      <div class="hero__content" data-v-in data-v-stagger="70">
+        <div class="hero__badge">24 / 7</div>
+        <h1>Шинотека – круглосуточный шиномонтаж в Красноярске</h1>
+        <p class="hero__lede"><a href="https://yandex.ru/maps/org/shinoteka/226914570313/" rel="noopener" target="_blank">Северо-Енисейская, 46/2</a>. Балансировка, вулканизация, хранение шин, развал-схождение – в любое время дня и ночи.</p>
+        <div class="hero__cta">
+          <a class="v-btn" href="tel:+79333214888">Позвонить: +7 (933) 321-48-88</a>
+          <a class="v-btn v-btn--ghost" href="https://wa.me/79069150000" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+        <div class="hero__contacts">
+          <span class="contact-label">Второй номер</span>
+          <a href="tel:+79069150000">+7 (906) 915-00-00</a>
+          <span class="contact-label">Адрес</span>
+          <a href="https://yandex.ru/maps/org/shinoteka/226914570313/" target="_blank" rel="noopener">Северо-Енисейская, 46/2 → маршрут</a>
+          <span class="contact-label">ВКонтакте</span>
+          <a href="https://vk.com/shinoteka24" target="_blank" rel="noopener">vk.com/shinoteka24</a>
+          <span class="contact-label">Режим</span>
+          <span style="font-size: var(--v-t-sm)">Ежедневно, круглосуточно</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Услуги -->
+    <section class="v-section" data-v-act="flow" data-v-drift="#0b0d11" id="uslugi" aria-label="Услуги">
+      <div class="v-wrap services">
+        <div class="v-stack" data-v-in data-v-stagger="60">
+          <h2 class="v-display v-display--lg">Услуги</h2>
+          <p class="v-body v-soft">Гарантия на все виды работ. Точную цену уточняйте по телефону или в WhatsApp.</p>
+          <ul class="services__list">
+            <li><h3>Шиномонтаж</h3><p>Снятие, установка, перебортировка колёс</p></li>
+            <li><h3>Балансировка</h3><p>Балансировка колёс на стенде</p></li>
+            <li><h3>Вулканизация</h3><p>Ремонт проколов и порезов</p></li>
+            <li><h3>Развал-схождение</h3><p>Регулировка углов установки колёс</p></li>
+            <li><h3>Хранение шин</h3><p>Оставьте комплект до следующего сезона</p></li>
+            <li><h3>Предварительная запись</h3><p>Запишитесь заранее, чтобы не ждать в очереди</p></li>
+          </ul>
+        </div>
+        <figure class="services__fig" data-v-reveal="up" data-v-reveal-at="0.12 0.45">
+          <img src="assets/stack.webp" alt="Комплект шин на стеллаже хранения" width="1200" height="1600" loading="lazy" decoding="async">
+          <figcaption>Хранение шин на стеллаже</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Отзывы (классический вид) -->
+    <section class="v-section" data-v-act="flow" data-v-drift="#0d1016" id="otzyvy" aria-label="Отзывы">
+      <div class="v-wrap reviews">
+        <div class="reviews__head" data-v-in>
+          <h2 class="v-display v-display--md">Отзывы</h2>
+          <div class="reviews__rating">
+            <span class="reviews__num v-nums">4,8</span>
+            <span class="reviews__stars" style="--r: 4.8" role="img" aria-label="рейтинг 4,8 из 5"></span>
+            <span class="v-soft">89 отзывов</span>
+            <a href="https://yandex.ru/maps/org/shinoteka/226914570313/" target="_blank" rel="noopener">Яндекс.Карты</a>
+          </div>
+        </div>
+        <ul class="reviews__list" data-v-in data-v-stagger="90">
+          <li class="reviews__item">
+            <p class="reviews__text">«Первый раз менял шины в 2006 г. Ездил на б/у резине, вылез корд, колесо билось словно в истерике. Они оказались ближе всех. Собственно как и в 2026 г. Приятно удивили цена на новую резину. Там же все и заменили. Работают круглосуточно – это очень большой плюс.»</p>
+            <p class="reviews__meta"><b>Евгений Сергеев</b> · август 2026</p>
+          </li>
+          <li class="reviews__item">
+            <p class="reviews__text">«Ехал через весь город именно ради этой точки, и не пожалел.»</p>
+            <p class="reviews__meta"><b>Максим Ю.</b> · август 2026</p>
+          </li>
+          <li class="reviews__item">
+            <p class="reviews__text">«Отличный выбор шин! Сотрудники помогли подобрать очень хорошие шины без пробега по России по приемлемой цене! Хорошее отношение, профессионализм!»</p>
+            <p class="reviews__meta"><b>Ольга</b> · август 2026</p>
+          </li>
+        </ul>
+        <div class="reviews__platforms" data-v-in>
+          <div class="reviews__platform">
+            <span class="reviews__num v-nums">4,9</span>
+            <span class="reviews__stars" style="--r: 4.9" role="img" aria-label="рейтинг 4,9 из 5"></span>
+            <span class="v-soft">389 отзывов</span>
+            <a href="https://2gis.ru/krasnoyarsk/firm/985690700559253" target="_blank" rel="noopener">2ГИС</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="foot">
+    <span>Шинотека · Красноярск</span>
+    <span>Шиномонтаж, балансировка, вулканизация, хранение шин, развал-схождение</span>
+  </footer>
+
+  <div class="demo-badge" aria-hidden="true">Демо-концепт</div>
+</div>
+
+<script src="vibe.js"></script>
+<script>
+  Vibe.mount(document.querySelector('.v-page'));
+
+  // Без анимаций (в Windows выключены «Эффекты анимации» → prefers-reduced-motion): движок vibe.js показывает
+  // все реплики сразу, и реплики, стоящие в одном месте, ложатся друг на друга. Здесь они сменяются мгновенно,
+  // по тем же порогам прокрутки, что и с анимацией. Реплики одного родителя с разными окнами – группа: видны
+  // только самые проявленные (несколько, если проявлены одинаково, например оффер и стикеры с общим окном).
+  (function () {
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    function num(s, d) { var n = parseFloat(s); return isNaN(n) ? d : n; }
+    var items = [];
+    document.querySelectorAll('[data-v-act]').forEach(function (act) {
+      act.querySelectorAll('[data-v-cue]').forEach(function (el) {
+        if (el.closest('[data-v-act]') !== act) return;
+        var a = (el.getAttribute('data-v-cue') || '').trim().split(/\s+/);
+        var from = num(a[0], 0), to = num(a[1], 1), win = Math.max(Math.min(to, 1) - from, 0.0001);
+        var ri = a.length > 2 ? num(a[2], 0.3 * win) : 0.3 * win;
+        var ro = a.length > 3 ? num(a[3], 0.3 * win) : 0.3 * win;
+        items.push({ act: act, el: el, from: from, to: to, ri: ri, ro: ro, hold: a.length < 2, on: null });
+      });
+    });
+    function opa(c, p) {
+      var q = c.ri <= 0 ? (p >= c.from ? 1 : 0) : Math.min(Math.max((p - c.from) / c.ri, 0), 1);
+      if (c.hold) return q;
+      var out = c.ro <= 0 ? ((p >= c.to && c.to < 1) ? 0 : 1) : 1 - Math.min(Math.max((p - (c.to - c.ro)) / c.ro, 0), 1);
+      return Math.min(q, out);
+    }
+    var groups = new Map();
+    items.forEach(function (c) { var k = c.el.parentNode; if (!groups.has(k)) groups.set(k, []); groups.get(k).push(c); });
+    groups.forEach(function (g) {
+      var seq = g.length > 1 && g.some(function (c) { return c.from !== g[0].from || c.to !== g[0].to; });
+      g.forEach(function (c) { c.group = seq ? g : null; });
+    });
+    function loop() {
+      items.forEach(function (c) { c.o = opa(c, num(c.act.style.getPropertyValue('--v-p'), 0)); });
+      items.forEach(function (c) {
+        var on;
+        if (c.group) {
+          var max = 0;
+          c.group.forEach(function (d) { if (d.o > max) max = d.o; });
+          on = max > 0.02 && c.o >= max - 0.01;
+        } else on = c.o > 0.5;
+        if (on !== c.on) { c.on = on; c.el.style.visibility = on ? '' : 'hidden'; }
+      });
+      requestAnimationFrame(loop);
+    }
+    loop();
+  })();
+
+  (function () {
+    var bar = document.querySelector('.bar'), on = null;
+    function tick() { var s = window.scrollY > 40; if (s !== on) { on = s; bar.classList.toggle('is-scrolled', s); } }
+    window.addEventListener('scroll', tick, { passive: true }); tick();
+  })();
+</script>
+</body>
+</html>
