@@ -71,7 +71,7 @@
     letter-spacing: var(--v-track-wide); text-transform: uppercase; padding: .5em 1em; border-radius: 999px; }
   .hero h1 { font-family: var(--v-font-display); font-weight: 700; font-size: clamp(2rem, 1.2rem + 3.5vw, 4rem);
     line-height: 1.05; margin-bottom: var(--v-5); }
-  .hero__lede { font-size: var(--v-t-lg); color: var(--v-ink); opacity: .9; max-width: 44ch; margin-bottom: var(--v-7); line-height: 1.5; }
+  .v-page .hero__lede { font-size: var(--v-t-lg); color: var(--v-ink); opacity: .9; max-width: 44ch; margin-bottom: var(--v-7); line-height: 1.5; }
   .hero__lede a { color: inherit; text-decoration: underline; text-underline-offset: .2em; text-decoration-color: var(--v-ink-soft); }
   .hero__cta { display: flex; flex-wrap: wrap; gap: var(--v-3); margin-bottom: var(--v-7); }
   .hero__cta .v-btn { font-size: 1.05rem; padding: .7em 1.8em; }
@@ -109,10 +109,10 @@
     background: linear-gradient(90deg, var(--v-accent) calc(var(--r, 0) / 5 * 100%), var(--v-hair-strong) 0);
     -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z'/%3E%3C/svg%3E") 0 0 / var(--size) var(--size) repeat-x;
     mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z'/%3E%3C/svg%3E") 0 0 / var(--size) var(--size) repeat-x; }
-  .reviews__list { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--v-6); }
+  .reviews__list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--v-6); }
   .reviews__item { background: var(--v-surface); border-radius: var(--v-radius); padding: var(--v-6); }
   .reviews__text { font-size: var(--v-t-sm); line-height: 1.55; text-wrap: pretty; }
-  .reviews__meta { margin-top: var(--v-4); font-size: var(--v-t-xs); color: var(--v-ink-soft); }
+  .v-page .reviews__meta { margin-top: var(--v-4); font-size: var(--v-t-xs); color: var(--v-ink-soft); }
   .reviews__meta b { color: var(--v-ink); font-weight: 600; }
   .reviews__platforms { margin-top: var(--v-6); display: flex; flex-wrap: wrap; gap: var(--v-6); align-items: center; }
   .reviews__platform { display: flex; align-items: center; gap: var(--v-3); font-size: var(--v-t-sm); }
@@ -130,6 +130,46 @@
     background: var(--v-surface); border: 1px solid var(--v-hair-strong); border-radius: 999px;
     padding: .55em 1.1em; font-size: var(--v-t-xs); color: var(--v-ink-soft); letter-spacing: var(--v-track-wide);
     backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); pointer-events: none; }
+  /* Контакты доступны и после прочтения страницы. */
+  html { scroll-padding-top: 6rem; }
+  .v-page:not(.vibe-ready) [data-v-in] > * { opacity: 1; transform: none; transition: none; }
+  .v-page:not(.vibe-ready) [data-v-reveal] { clip-path: none !important; }
+  .v-page .hero__trust { display: flex; flex-wrap: wrap; align-items: center; gap: .35rem 1rem; margin-top: var(--v-5); font-size: var(--v-t-sm); }
+  .hero__trust a { display: inline-flex; align-items: center; min-height: 44px; }
+  .hero__trust strong { color: var(--v-accent); }
+  .v-page .hero__note { margin-top: var(--v-3); font-size: var(--v-t-xs); color: var(--v-ink-soft); }
+  .hero .hero__cta { margin-bottom: 0; }
+  .booking__links { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; }
+  .booking__links a, .reviews__meta a { display: inline-flex; align-items: center; min-height: 44px; }
+  .v-page .reviews__note { margin-top: var(--v-4); font-size: var(--v-t-xs); color: var(--v-ink-soft); }
+  .skip-link { position: fixed; top: .5rem; left: 1rem; z-index: 60; padding: .75rem 1rem; background: var(--v-accent); color: var(--v-accent-ink); transform: translateY(-200%); }
+  .skip-link:focus { transform: none; }
+  .demo-badge { position: static; display: table; margin: 0 var(--v-gutter) 1rem; }
+  @media (max-width: 600px) {
+    html { scroll-padding-bottom: calc(6rem + env(safe-area-inset-bottom, 0px)); }
+    .v-page { padding-bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px)); }
+    .hero { min-height: auto; padding-top: 7rem; }
+    .foot { padding-bottom: var(--v-7); }
+  }
+  .booking { border-top: 1px solid var(--v-hair); }
+  .booking__content { max-width: 48rem; }
+  .booking h2 { margin-bottom: var(--v-5); }
+  .booking p { margin-bottom: var(--v-5); }
+  .booking .hero__cta { margin-bottom: var(--v-5); }
+  .mobile-actions { display: none; }
+  @media (max-width: 600px) {
+    .hero__cta { flex-direction: column; align-items: stretch; }
+    .hero__cta .v-btn { white-space: normal; text-align: center; padding-inline: 1rem; }
+    .hero__contacts a { overflow-wrap: anywhere; }
+    .demo-badge { position: static; display: table; margin: 0 var(--v-gutter) 1rem; }
+    .mobile-actions { display: grid; grid-template-columns: 1fr 1fr; gap: .65rem;
+      position: fixed; inset: auto 0 0; z-index: 35; background: var(--v-canvas);
+      border-top: 1px solid var(--v-hair-strong); padding: .65rem var(--v-gutter) calc(.65rem + env(safe-area-inset-bottom, 0px)); }
+    .mobile-actions .v-btn { min-height: 48px; padding-inline: .6rem; font-size: .85rem; }
+    .bar { gap: .5rem; }
+    .bar__services { padding-inline: .35rem; }
+    .bar__right .v-btn:not(.bar__services) { padding-inline: .7rem; }
+  }
 </style>
 <script type="application/ld+json">
 {
@@ -156,6 +196,7 @@
 </head>
 <body>
 <div class="v-page">
+  <a class="skip-link" href="#uslugi">Перейти к услугам</a>
   <span data-v-progress aria-hidden="true"></span>
   <div class="v-grain" aria-hidden="true"></div>
 
@@ -181,23 +222,19 @@
         </picture>
       </div>
       <div class="hero__content" data-v-in data-v-stagger="70">
-        <div class="hero__badge">24 / 7</div>
+        <div class="hero__badge">24 / 7 · ежедневно</div>
         <h1>Шинотека – круглосуточный шиномонтаж в Красноярске</h1>
-        <p class="hero__lede"><a href="https://yandex.ru/maps/org/shinoteka/226914570313/" rel="noopener" target="_blank">Северо-Енисейская, 46/2</a>. Балансировка, вулканизация, хранение шин, развал-схождение – в любое время дня и ночи.</p>
+        <p class="hero__lede"><a href="https://yandex.ru/maps/org/shinoteka/226914570313/" rel="noopener" target="_blank">Северо-Енисейская, 46/2</a>. Шиномонтаж, балансировка, ремонт и хранение шин. Время выполнения нужной услуги уточните перед приездом.</p>
         <div class="hero__cta">
-          <a class="v-btn" href="tel:+79333214888">Позвонить: +7 (933) 321-48-88</a>
-          <a class="v-btn v-btn--ghost" href="https://wa.me/79069150000" target="_blank" rel="noopener">WhatsApp</a>
+          <a class="v-btn v-btn--fill" href="tel:+79333214888">Позвонить: +7 (933) 321-48-88</a>
+          <a class="v-btn v-btn--ghost" href="https://wa.me/79069150000?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D1%82%D0%BE%D1%87%D0%BD%D0%B8%D1%82%D1%8C%20%D1%81%D1%82%D0%BE%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%20%D0%B8%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F." target="_blank" rel="noopener">WhatsApp</a>
         </div>
-        <div class="hero__contacts">
-          <span class="contact-label">Второй номер</span>
-          <a href="tel:+79069150000">+7 (906) 915-00-00</a>
-          <span class="contact-label">Адрес</span>
-          <a href="https://yandex.ru/maps/org/shinoteka/226914570313/" target="_blank" rel="noopener">Северо-Енисейская, 46/2 → маршрут</a>
-          <span class="contact-label">ВКонтакте</span>
-          <a href="https://vk.com/shinoteka24" target="_blank" rel="noopener">vk.com/shinoteka24</a>
-          <span class="contact-label">Режим</span>
-          <span style="font-size: var(--v-t-sm)">Ежедневно, круглосуточно</span>
+        <div class="hero__trust">
+          <a href="#otzyvy"><strong>4,8 / 5</strong>&nbsp; · Яндекс Карты · 89 отзывов ↓</a>
+          <a href="https://yandex.ru/maps/org/shinoteka/226914570313/" target="_blank" rel="noopener">Посмотреть на карте ↗</a>
         </div>
+        <p class="hero__note">Рейтинг на момент подготовки демо. Актуальный — на Яндекс Картах.</p>
+        <p class="hero__note">Изображения в демо — иллюстрации, не фотографии этой мастерской.</p>
       </div>
     </section>
 
@@ -206,19 +243,20 @@
       <div class="v-wrap services">
         <div class="v-stack" data-v-in data-v-stagger="60">
           <h2 class="v-display v-display--lg">Услуги</h2>
-          <p class="v-body v-soft">Гарантия на все виды работ. Точную цену уточняйте по телефону или в WhatsApp.</p>
+          <p class="v-body v-soft">Стоимость уточняйте по телефону или в WhatsApp: назовите нужную услугу, марку автомобиля и диаметр колёс. Условия гарантии уточните при обращении.</p>
           <ul class="services__list">
             <li><h3>Шиномонтаж</h3><p>Снятие, установка, перебортировка колёс</p></li>
             <li><h3>Балансировка</h3><p>Балансировка колёс на стенде</p></li>
             <li><h3>Вулканизация</h3><p>Ремонт проколов и порезов</p></li>
             <li><h3>Развал-схождение</h3><p>Регулировка углов установки колёс</p></li>
             <li><h3>Хранение шин</h3><p>Оставьте комплект до следующего сезона</p></li>
-            <li><h3>Предварительная запись</h3><p>Запишитесь заранее, чтобы не ждать в очереди</p></li>
+            <li><h3>Предварительная запись</h3><p>Позвоните заранее, чтобы согласовать удобное время</p></li>
           </ul>
+          <a class="v-btn v-btn--fill" href="#zapis">Записаться →</a>
         </div>
         <figure class="services__fig" data-v-reveal="up" data-v-reveal-at="0.12 0.45">
           <img src="assets/stack.webp" alt="Комплект шин на стеллаже хранения" width="1200" height="1600" loading="lazy" decoding="async">
-          <figcaption>Хранение шин на стеллаже</figcaption>
+          <figcaption>Хранение шин · иллюстрация услуги</figcaption>
         </figure>
       </div>
     </section>
@@ -237,18 +275,19 @@
         </div>
         <ul class="reviews__list" data-v-in data-v-stagger="90">
           <li class="reviews__item">
-            <p class="reviews__text">«Первый раз менял шины в 2006 г. Ездил на б/у резине, вылез корд, колесо билось словно в истерике. Они оказались ближе всех. Собственно как и в 2026 г. Приятно удивили цена на новую резину. Там же все и заменили. Работают круглосуточно – это очень большой плюс.»</p>
-            <p class="reviews__meta"><b>Евгений Сергеев</b> · август 2026</p>
+            <p class="reviews__text">«Там же все и заменили. Работают круглосуточно 🏪 - это очень большой +.»</p>
+            <p class="reviews__meta"><b>Евгений Сергеев</b> · август 2026<br><a href="https://yandex.ru/maps/org/shinoteka/226914570313/" target="_blank" rel="noopener">Фрагмент отзыва на Яндекс Картах ↗</a></p>
           </li>
           <li class="reviews__item">
             <p class="reviews__text">«Ехал через весь город именно ради этой точки, и не пожалел.»</p>
-            <p class="reviews__meta"><b>Максим Ю.</b> · август 2026</p>
+            <p class="reviews__meta"><b>Максим Ю.</b> · август 2026<br><a href="https://yandex.ru/maps/org/shinoteka/226914570313/" target="_blank" rel="noopener">Отзывы на Яндекс Картах ↗</a></p>
           </li>
           <li class="reviews__item">
-            <p class="reviews__text">«Отличный выбор шин! Сотрудники помогли подобрать очень хорошие шины без пробега по России по приемлемой цене! Хорошее отношение, профессионализм!»</p>
-            <p class="reviews__meta"><b>Ольга</b> · август 2026</p>
+            <p class="reviews__text">«Хорошее отношение, профессионализм!»</p>
+            <p class="reviews__meta"><b>Ольга</b> · август 2026<br><a href="https://yandex.ru/maps/org/shinoteka/226914570313/" target="_blank" rel="noopener">Фрагмент отзыва на Яндекс Картах ↗</a></p>
           </li>
         </ul>
+        <p class="reviews__note">Фрагменты отзывов за август 2026. Актуальные оценки и отзывы — на Яндекс Картах и в 2ГИС.</p>
         <div class="reviews__platforms" data-v-in>
           <div class="reviews__platform">
             <span class="reviews__num v-nums">4,9</span>
@@ -260,6 +299,24 @@
       </div>
     </section>
 
+    <section class="v-section booking" id="zapis" aria-labelledby="booking-title">
+      <div class="v-wrap">
+        <div class="booking__content">
+          <h2 class="v-display v-display--md" id="booking-title">Уточните стоимость и время приезда</h2>
+          <p class="v-body v-soft">Позвоните или напишите в WhatsApp. Назовите услугу, марку автомобиля и диаметр колёс — уточните цену и возможность записи до поездки.</p>
+          <div class="hero__cta">
+            <a class="v-btn v-btn--fill" href="tel:+79333214888">Позвонить: +7 (933) 321-48-88</a>
+            <a class="v-btn v-btn--ghost" href="https://wa.me/79069150000?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D1%82%D0%BE%D1%87%D0%BD%D0%B8%D1%82%D1%8C%20%D1%81%D1%82%D0%BE%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%20%D0%B8%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F." target="_blank" rel="noopener">Написать в WhatsApp</a>
+          </div>
+          <p class="v-body">Красноярск, Северо-Енисейская, 46/2<br>Ежедневно, круглосуточно</p>
+          <a href="https://yandex.ru/maps/?rtext=~%D0%9A%D1%80%D0%B0%D1%81%D0%BD%D0%BE%D1%8F%D1%80%D1%81%D0%BA%2C%20%D0%A1%D0%B5%D0%B2%D0%B5%D1%80%D0%BE-%D0%95%D0%BD%D0%B8%D1%81%D0%B5%D0%B9%D1%81%D0%BA%D0%B0%D1%8F%2C%2046%2F2" target="_blank" rel="noopener">Построить маршрут в Яндекс Картах ↗</a>
+          <div class="booking__links">
+            <a href="tel:+79069150000">Второй номер: +7 (906) 915-00-00</a>
+            <a href="https://vk.com/shinoteka24" target="_blank" rel="noopener">Написать ВКонтакте ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="foot">
@@ -268,11 +325,25 @@
   </footer>
 
   <div class="demo-badge" aria-hidden="true">Демо-концепт</div>
+  <nav class="mobile-actions" aria-label="Связь и маршрут">
+    <a class="v-btn v-btn--fill" href="tel:+79333214888">Позвонить</a>
+    <a class="v-btn v-btn--ghost" href="https://yandex.ru/maps/?rtext=~%D0%9A%D1%80%D0%B0%D1%81%D0%BD%D0%BE%D1%8F%D1%80%D1%81%D0%BA%2C%20%D0%A1%D0%B5%D0%B2%D0%B5%D1%80%D0%BE-%D0%95%D0%BD%D0%B8%D1%81%D0%B5%D0%B9%D1%81%D0%BA%D0%B0%D1%8F%2C%2046%2F2" target="_blank" rel="noopener">Как доехать ↗</a>
+  </nav>
 </div>
 
 <script src="vibe.js"></script>
 <script>
-  Vibe.mount(document.querySelector('.v-page'));
+  (function () {
+    var root = document.querySelector('.v-page');
+    if (!window.Vibe) return;
+    try {
+      Vibe.mount(root);
+      root.classList.add('vibe-ready');
+    } catch (error) {
+      root.classList.remove('vibe-ready');
+      console.error('Не удалось запустить анимации:', error);
+    }
+  })();
 
   // Без анимаций (в Windows выключены «Эффекты анимации» → prefers-reduced-motion): движок vibe.js показывает
   // все реплики сразу, и реплики, стоящие в одном месте, ложатся друг на друга. Здесь они сменяются мгновенно,
@@ -292,6 +363,7 @@
         items.push({ act: act, el: el, from: from, to: to, ri: ri, ro: ro, hold: a.length < 2, on: null });
       });
     });
+    if (!items.length) return;
     function opa(c, p) {
       var q = c.ri <= 0 ? (p >= c.from ? 1 : 0) : Math.min(Math.max((p - c.from) / c.ri, 0), 1);
       if (c.hold) return q;
@@ -319,6 +391,19 @@
     }
     loop();
   })();
+
+  document.addEventListener('focusin', function (event) {
+    var el = event.target;
+    if (!el.getBoundingClientRect || el.closest('.bar, .mobile-actions, .skip-link')) return;
+    requestAnimationFrame(function () {
+      var r = el.getBoundingClientRect();
+      var top = document.querySelector('.bar').getBoundingClientRect().bottom + 12;
+      var panel = document.querySelector('.mobile-actions');
+      var bottom = getComputedStyle(panel).display === 'none' ? innerHeight - 12 : panel.getBoundingClientRect().top - 12;
+      if (r.bottom > bottom) window.scrollBy(0, r.bottom - bottom);
+      else if (r.top < top) window.scrollBy(0, r.top - top);
+    });
+  });
 
   (function () {
     var bar = document.querySelector('.bar'), on = null;
